@@ -11,7 +11,7 @@ BEGIN {
 }
 
 # Execute the tests
-use Test::More tests => 307;
+use Test::More tests => 395;
 use Test::NoWarnings;
 use File::Spec::Functions ':ALL';
 use List::MoreUtils ();
@@ -160,7 +160,7 @@ foreach my $code ( '08', '09', '0778', '0779' ) {
 	is($token->literal, undef, "literal('$code') is undef");
 }
 
-foreach my $code ( '0b2', '0b012' ) {
+foreach my $code ( '0b2', '0B2', '0b012', '0B012' ) {
 	my $T = PPI::Tokenizer->new( \$code );
 	my $token = $T->get_token;
 	isa_ok($token, 'PPI::Token::Number::Binary');
@@ -170,11 +170,41 @@ foreach my $code ( '0b2', '0b012' ) {
 	is($token->literal, undef, "literal('$code') is undef");
 }
 
-foreach my $code ( '0xg', '0x0g' ) {
+foreach my $code ( '0xg', '0Xg', '0XG', '0x0g', '0X0g', '0X0G' ) {
 	my $T = PPI::Tokenizer->new( \$code );
 	my $token = $T->get_token;
 	isa_ok($token, 'PPI::Token::Number::Hex');
 	isnt("$token", $code, "tokenize bad hex '$code'");
 	ok(!$token->{_error}, 'invalid hexadecimal digit triggers end of token');
 	is($token->literal, 0, "literal('$code') is 0");
+}
+
+HEX: {
+	my @tests = (
+		{ code => '0x0', value => 0 },
+		{ code => '0X0', value => 0 },
+		{ code => '0x1', value => 1 },
+		{ code => '0x_1', value => 1 },
+		{ code => '0x__1', value => 1 },
+		{ code => '0x__1_', value => 1 },  # Perl warns, but still includes trailing '_'
+		{ code => '0X1', value => 1 },
+		{ code => '0xc', value => 12 },
+		{ code => '0Xc', value => 12 },
+		{ code => '0XC', value => 12 },
+		{ code => '0xbeef', value => 48879 },
+		{ code => '0XbeEf', value => 48879 },
+		{ code => '0x0e', value => 14 },
+		{ code => '0x00000e', value => 14 },
+		{ code => '0x000_00e', value => 14 },
+		{ code => '0x000__00e', value => 14 },
+	);
+	foreach my $test ( @tests ) {
+		my $code = $test->{code};
+		my $T = PPI::Tokenizer->new( \$code );
+		my $token = $T->get_token;
+		isa_ok($token, 'PPI::Token::Number::Hex');
+		is("$token", $code, "tokenize all of '$code'");
+		ok(!$token->{_error}, "no error for '$code'");
+		is($token->literal, $test->{value}, "literal('$code') is $test->{value}");
+	}
 }
