@@ -247,7 +247,7 @@ sub _lex_document {
 		}
 
 		if ( $Token->content eq ';' ) {
-			# It's a semi-colon on it's own.
+			# It's a semi-colon on its own.
 			# We call this a null statement.
 			$self->_add_element(
 				$Document,
@@ -614,7 +614,7 @@ sub _lex_statement {
 			next;
 		}
 
-		# Structual closes, and __DATA__ and __END__ tags implicitly
+		# Structural closes, and __DATA__ and __END__ tags implicitly
 		# end every type of statement
 		if (
 			$Token->__LEXER__closes
@@ -1307,7 +1307,7 @@ sub _lex_structure {
 			return $self->_rollback( $Token );
 		}
 
-		# It's a semi-colon on it's own, just inside the block.
+		# It's a semi-colon on its own, just inside the block.
 		# This is a null statement.
 		$self->_add_element(
 			$Structure,

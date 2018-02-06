@@ -871,7 +871,7 @@ take source for any platform (and even supports a few known types of
 broken newlines caused by mixed mac/pc/*nix editor screw ups).
 
 The resulting array of lines is used to feed the tokenizer, and is also
-accessed directly by the heredoc-logic to do the line-oriented part of
+accessed directly by the heredoc logic to do the line-oriented part of
 here-doc support.
 
 =head2 Doing Things the Old Fashioned Way
@@ -1043,7 +1043,7 @@ reclassify the tokenizer as a "hybrid regex, char-by=char heuristic
 tokenizer". More tokens are now consumed in "complete" methods in a
 typical program than are handled by the normal char-by-char methods.
 
-Many of the these complete-handlers were implemented during the writing
+Many of these complete-handlers were implemented during the writing
 of the Lexer, and this has allowed the full parser to maintain around
 1000 LPGC despite the increasing weight of the Lexer.
 

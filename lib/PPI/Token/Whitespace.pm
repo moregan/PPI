@@ -64,7 +64,7 @@ equivalent to that, including the whole screaming death bit.
 The C<null> method is a convenience provided to get some internals
 out of some of these corner cases.
 
-Specifically it create a whitespace token that represents nothing,
+Specifically it creates a whitespace token that represents nothing,
 or at least the null string C<''>. It's a handy way to have some
 "whitespace" right where you need it, without having to have any
 actual characters.

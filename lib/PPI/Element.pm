@@ -763,7 +763,7 @@ sub _ensure_location_present {
 	return 1;
 }
 
-# Although flush_locations is only publically a Document-level method,
+# Although flush_locations is only publicly a Document-level method,
 # we are able to implement it at an Element level, allowing us to
 # selectively flush only the part of the document that occurs after the
 # element for which the flush is called.
@@ -784,7 +784,7 @@ sub _flush_locations {
 			return 1 unless $Token->{_location};
 			next unless refaddr($Token) == refaddr($start);
 
-			# Found the start. Flush it's location
+			# Found the start. Flush its location
 			delete $$Token->{_location};
 			last;
 		}

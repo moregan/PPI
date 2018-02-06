@@ -2,7 +2,7 @@ package PPI::Test::pragmas;
 
 =head1 NAME
 
-PPI::Test::pragmas -- standard complier/runtime setup for PPI tests
+PPI::Test::pragmas -- standard compiler/runtime setup for PPI tests
 
 PPI modules do not enable warnings, but this module enables warnings
 in the tests, and it forces a test failure if any warnings occur.

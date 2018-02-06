@@ -128,7 +128,7 @@ foreach my $file ( @files ) {
 #####################################################################
 # Test Functions
 
-# Check for accidental use of illegal or non-existant classes in
+# Check for accidental use of illegal or non-existent classes in
 # ->isa calls. This has happened at least once, presumably because
 # PPI has a LOT of classes and it can get confusing.
 sub bug_bad_isa_class_name {

@@ -193,7 +193,7 @@ Revision history for Perl extension PPI
 
 1.213 Tue  6 Jul 2010
 	Summary:
-	- Targetted bug fix, no changes to parsing or normal usage
+	- Targeted bug fix, no changes to parsing or normal usage
 
 	Details:
 	- Updated to Module::Install 1.00
@@ -404,7 +404,7 @@ Revision history for Perl extension PPI
 	- Initial Perl 6 support
 	- Bug fixes and final 1.203 release candidate
 	- I finally catch up with all the failing test cases
-	  that Chris Dolan keeps commiting :)
+	  that Chris Dolan keeps committing :)
 
 	Details:
 	- Adding initial support for "use v6-alpha;"
@@ -1064,7 +1064,7 @@ Revision history for Perl extension PPI
 	- Fixed some install problems
 
 	Details:
-	- PPI::Node::schild was copying the entire of it's child array each call.
+	- PPI::Node::schild was copying its entire child array each call.
 	  This was causing massive slowdowns when ->{children} got large. Fixed.
 	- The core tests still expect Transform to be in the core. Fixed.
 
@@ -1128,7 +1128,7 @@ Revision history for Perl extension PPI
 	- Fixed #CPAN 8752 (a round-trip edge case bug)
 	- Added 08_regression.t to do code/dump regression testing for lexer bugs
 	- Completed (hopefully) HereDocs conversion to a single complex token
-	- PPI is now compatible with prefork.pm (although not dependant)
+	- PPI is now compatible with prefork.pm (although not dependent)
 
 	Details:
 	- Added PPI::Node::find_first object method
@@ -1328,7 +1328,7 @@ Revision history for Perl extension PPI
 
 0.817 Thu Jul  1 2004
  	- Fixed the misparsing of $#{ }
- 	- Changed PPI::ParentElement to PPI::Node and moved it to it's own file
+ 	- Changed PPI::ParentElement to PPI::Node and moved it to its own file
 	- Changed PPI::Common to PPI::Base
 	- Fixed PPI::Node::find
 	- Added PPI::Node::prune
@@ -1342,7 +1342,7 @@ Revision history for Perl extension PPI
 	- Fixed a bug with the detection of @- and @+
 	- Added support for @*
 	- Added missing classmap entry for ^ to ::Token::WhiteSpace
-	- Added support for arcane "foo"x10 idiosyncracy
+	- Added support for arcane "foo"x10 idiosyncrasy
 
 0.814 Sat Jun 26 2004
 	- Added the PPI tester, a desktop-based interactive debugger, which

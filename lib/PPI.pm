@@ -475,7 +475,7 @@ B<Tokens>.
 A L<PPI::Statement> is any series of Tokens and Structures that are treated
 as a single contiguous statement by perl itself. You should note that a
 Statement is as close as PPI can get to "parsing" the code in the sense that
-perl-itself parses Perl code when it is building the op-tree.
+perl itself parses Perl code when it is building the op-tree.
 
 Because of the isolation and Perl's syntax, it is provably impossible for
 PPI to accurately determine precedence of operators or which tokens are
